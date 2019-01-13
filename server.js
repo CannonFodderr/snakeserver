@@ -17,11 +17,12 @@ connect(db_url).then(() => { console.log("Connected to DB")}).catch(err => conso
 
 
 app.use((req, res, next) => {
-    let allowedOrigins = ['https://snakereactgame.herokuapp.com', 'http://localhost:3000'];
-    let origin = req.headers.origin;
-    if(allowedOrigins.indexOf(origin) > -1){
-        res.setHeader('Access-Control-Allow-Origin', origin);
-    }
+    // let allowedOrigins = ['https://snakereactgame.herokuapp.com', 'http://localhost:3000'];
+    // let origin = req.headers.origin;
+    // if(allowedOrigins.indexOf(origin) > -1){
+    //     res.setHeader('Access-Control-Allow-Origin', origin);
+    // }
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
